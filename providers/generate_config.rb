@@ -11,14 +11,15 @@ action :setup do
       recursive true
     end
   end
-  
+
   template "#{new_resource.base_dir}/config.rb" do
     source new_resource.source
     cookbook new_resource.cookbook
     variables({
                 :root_path => new_resource.base_dir,
                 :tmp_path => new_resource.tmp_path,
-                :data_path => new_resource.data_path
+                :data_path => new_resource.data_path,
+                :major_version => new_resource.major_version
               })
   end
 end
