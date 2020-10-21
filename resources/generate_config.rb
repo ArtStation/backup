@@ -22,7 +22,7 @@ def initialize(*args)
 end
 
 def major_backup_version
-  backup_version = shell_out!("/usr/local/bin/backup version").stdout.chomp
+  backup_version = shell_out!("/usr/local/bin/backup version").stdout.chomp rescue ""
   version = backup_version.match(/Backup (?<major>\d)/)
 
   return unless version
